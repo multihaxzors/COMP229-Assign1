@@ -4,18 +4,21 @@
     Student ID: 301230592
     Date: 2022-10-07
 */
-//Third Party Modules
+// Third Party Modules
 import express from "express";
 import cookieParser from "cookie-parser";
 import logger from 'morgan';
 import session from "express-session";
 
-//ES Modules fix for __dirname 
+// ES Modules fix for __dirname 
 import path, {dirname} from 'path';
 import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-//Import Router
+// Configuration Module
+import { Secret } from "../config/config.js";
+
+// Import Router
 import indexRouter from './routes/index.route.server.js';
 
 // instantiate app-server
@@ -31,6 +34,7 @@ app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(session({
+    secret: Secret,
     saveUninitialized: false,
     resave: false
 }));
