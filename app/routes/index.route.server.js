@@ -1,4 +1,10 @@
-// Index Routes
+/*
+    File Name: index.route.server.js
+    Student Name: Jonathan Champ
+    Student ID: 301230592
+    Date: 2022-10-07
+*/
+//Index Routes imported
 import { Router } from 'express';
 import { displayHomePage, 
     displayAboutPage, 
@@ -6,10 +12,10 @@ import { displayHomePage,
     displayServicesPage, 
     displayContactPage } from '../controllers/index.controller.server.js'
 
-// Intanciating the router
+//Intanciates a router
 const router = Router();
 
-// add middleware to connect application
+//Implement middleware to connect application
 router.get('/',displayHomePage);
 router.get('/home',displayHomePage);
 router.get('/about', displayAboutPage );
